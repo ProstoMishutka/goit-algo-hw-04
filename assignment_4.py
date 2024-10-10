@@ -50,7 +50,7 @@ def main():
             else:
                 print("Invalid command.")
         except ValueError:
-            print("Error")
+            print("Error.")
 
 if __name__ == "__main__":
     main()
