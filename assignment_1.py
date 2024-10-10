@@ -15,6 +15,8 @@ def total_salary(path):
         print(f"File {path} is not found")
     except ValueError:
         print("Value error")
+    except ZeroDivisionError as e:
+        print(f"{e}")
 
 path = "info_for_salary.txt"
 print(total_salary(path))
