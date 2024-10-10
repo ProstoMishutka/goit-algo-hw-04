@@ -1,16 +1,23 @@
-from pathlib import Path
 from colorama import Fore, Style
+from pathlib import Path
+import sys
 
-def way_folder(path, n=1):
-    path = Path(path)
-    space = " " * (n * 4)
+def way_folder():
+    if len(sys.argv) < 2:
+        way = ""
+    else:
+        way = sys.argv[1]
+    path = Path(way)
     if path.exists():
-        for element in path.iterdir():
-            if element.is_file():
-                print(f"{space}{Fore.YELLOW}{element.name}{Style.RESET_ALL}")
-            else:
-                print(f"{space}{Fore.BLUE}{element.name}{Style.RESET_ALL}")
-                way_folder(element, n + 1)
+        if path.is_dir():
+            for el in path.iterdir():
+                if el.is_file():
+                    print(f"{Fore.YELLOW}{el.name}{Style.RESET_ALL}")
+                elif el.is_dir():
+                    print(f"{Fore.BLUE}{el.name}{Style.RESET_ALL}")
+        else:
+            print(f"{way} is not a directory.")
+    else:
+        print(f"{way} does not exist.")
 
-path = "."
-way_folder(path)
+way_folder()
