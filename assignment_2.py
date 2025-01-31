@@ -15,4 +15,3 @@ def get_cats_info(path):
 path = "info_for_assign_2.txt"
 print(get_cats_info(path))
 
-"""ertyuio"""
